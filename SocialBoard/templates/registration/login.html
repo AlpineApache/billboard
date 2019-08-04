@@ -1,0 +1,26 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/login.css' %}">
+
+<div class="container">
+    <div class="form-container">
+        <h1>BILLBOARD</h1>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            </table>
+
+            <input class="login-button" type="submit" value="LOGIN" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <div class="register">Not registered? <a class="register-link" href="/SocialBoard/register">Create an account</a></div>
+    </div>
+</div>

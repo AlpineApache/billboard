@@ -1,0 +1,55 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/main.css' %}">
+
+<div class="top flex-center">
+    <div class="left"><span>Hello {{user}}</span></div>
+    <div class="right">
+        <div class="logout-button flex-center"><span>Logout</span></div>
+    </div>
+</div>
+<div class="title flex-center">
+    <h1>BILLBOARD</h1>
+</div>
+<div id="billboard-container">
+{% if db_entries %}
+    {% for entry in db_entries %}
+    <div class="comment">
+        <div class="date">{{entry.post_publish_date}}</div>
+        <h2 class="comment-title">{{entry.post_title}}</h2>
+        <div class="comment-content">
+            {{entry.post_content}}
+        </div>
+        <div class="comment-author"><span>{{entry.post_author}}</span></div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div id="no-messages">
+        No messages ... <br> Click the '+' button to add a new message
+    </div>
+{% endif %}
+    <div id="newest"></div>
+    <div id="new-post-container">
+        <form class="new-post-input-fields">
+            <input type="text" class="form-control" required id="newtitle" placeholder="Title...">
+            <textarea class="form-control" rows="5" id="newtext" placeholder="Your message here..."></textarea>
+            <input type="text" class="form-control" required id="newauthor" placeholder="Your name...">
+            <div class="button-container">
+                <i class="fa fa-window-close" id="close"></i>
+                <i class="fa fa-check" id="post"></i>
+            </div>
+        </form>
+    </div>
+    <div id="add-post">
+        <i class="fa fa-plus" id="add-button"></i>
+    </div> 
+</div>
+{% csrf_token %}
+<script type="text/javascript">
+    var csrf = "{{csrf_token}}";
+</script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="{% static 'SocialBoard/js/SocialBoardLogic.js' %}"></script>

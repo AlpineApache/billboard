@@ -1,0 +1,26 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/register.css' %}">
+
+<div class="container">
+    <div class="form-container">
+        <h1>Create an account</h1>
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            <tr>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" maxlength="150" autofocus required id="id_username">
+            </tr>
+            <tr>
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" required id="password1">
+            </tr>
+            <tr>
+                <label for="id_password2">Password confirmation:</label>
+                <input type="password" name="password2" required id="password2">
+            </tr>
+            <input class="register-button" type="submit" value="Create the account" />
+        </form>
+        <div class="register">Already have an account? <a class="register-link" href="/SocialBoard/login">Login</a></div>
+    </div>
+</div>

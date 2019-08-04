@@ -1,0 +1,92 @@
+.container{
+    background-color: #00b7ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form-container{
+    height: 50%;
+    width: 30%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
+
+table{
+    height: 60%;
+    width: 100%;
+}
+
+tbody{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+tr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+td{
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+body{
+    margin: 0px;
+}
+
+h1{
+    font-family: 'Anton', sans-serif;
+}
+
+input[type=submit]{
+    background-color: #00b7ef
+}
+
+input{
+    background-color: lightgray;
+    border: none;
+    height: 40px;
+    width: 80%;
+}
+
+.login-button{
+    color: white;
+    margin-bottom: 10px;
+}
+
+.register-link{
+    color: #00b7ef;
+    opacity: 1;
+    text-decoration: none
+}
+
+.register{
+    color: lightgray
+}
